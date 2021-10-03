@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/Page.css" />
+    <title>Trivia</title>
+    <script defer src="/js/Page.js"></script>
+  </head>
+  <body>
+    <div>
+      <video autoplay muted loop id="myVideo">
+        <source src="/video/BackgroundVideo.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="players">
+      <div id="player1" class="player">
+        <div id="name1">Player1</div>
+        <div class="xp" id="xp1">XP</div>
+      </div>
+      <div id="player2" class="player">
+        <div id="name2">Player2</div>
+        <div class="xp" id="xp2">XP</div>
+      </div>
+      <div id="player3" class="player">
+        <div id="name3">Player3</div>
+        <div class="xp" id="xp3">XP</div>
+      </div>
+      <div id="player4" class="player">
+        <div id="name4">Player4</div>
+        <div class="xp" id="xp4">XP</div>
+      </div>
+    </div>
+    <div id="body">
+      <div id="header">
+        <h2><span id="playerInHeader">Player1</span> it is your turn!</h2>
+      </div>
+      <div id="category">
+        <p id="categoryInside">Category</p>
+      </div>
+      <div id="question">
+        <p id="questionInside">Question</p>
+      </div>
+      <div id="answers">
+        <div class="answersgroup">
+          <button class="answer" id="answerHolder0">Answer1</button>
+          <button class="answer" id="answerHolder1">Answer2</button>
+        </div>
+        <div class="answersgroup">
+          <button class="answer" id="answerHolder2">Answer3</button>
+          <button class="answer" id="answerHolder3">Answer4</button>
+        </div>
+      </div>
+      <button id="submit">Next</button>
+    </div>
+  </body>
+</html>

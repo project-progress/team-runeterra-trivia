@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia</title>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <video autoplay muted loop id="myVideo">
+      <source src="/video/BackgroundVideo.mp4" type="video/mp4" />
+    </video>
+
+    <div class="start_btn"><button>Start Quiz</button></div>
+
+    <div class="players_box">
+      <div class="players-title"><span>Please enter your name</span></div>
+      <div class="players-list">
+        <input
+          type="text"
+          class="player"
+          id="player1"
+          value="Player1"
+          onfocus="this.value = this.value=='Player1'?'':this.value;"
+          onblur="this.value = this.value==''?'Player1':this.value;"
+        />
+        <input
+          type="text"
+          class="player"
+          id="player1"
+          value="Player2"
+          onfocus="this.value = this.value=='Player2'?'':this.value;"
+          onblur="this.value = this.value==''?'Player2':this.value;"
+        />
+        <input
+          type="text"
+          class="player"
+          id="player1"
+          value="Player3"
+          onfocus="this.value = this.value=='Player3'?'':this.value;"
+          onblur="this.value = this.value==''?'Player3':this.value;"
+        />
+        <input
+          type="text"
+          class="player"
+          id="player1"
+          value="Player4"
+          onfocus="this.value = this.value=='Player4'?'':this.value;"
+          onblur="this.value = this.value==''?'Player4':this.value;"
+        />
+      </div>
+      <div class="buttons">
+        <button class="quit_1">Exit Quiz</button>
+        <button class="continue-1">Continue</button>
+      </div>
+    </div>
+
+    <div class="player_information_box">
+      <div class="player_box">
+        <div id="name1">Player1:</div>
+        <div class="xp" id="xp1">0 XP</div>
+      </div>
+      <div class="player_box">
+        <div id="name2">Player2:</div>
+        <div class="xp" id="xp2">0 XP</div>
+      </div>
+      <div class="player_box">
+        <div id="name3">Player3:</div>
+        <div class="xp" id="xp3">0 XP</div>
+      </div>
+      <div class="player_box">
+        <div id="name4">Player4:</div>
+        <div class="xp" id="xp4">0 XP</div>
+      </div>
+    </div>
+
+    <div class="options_box">
+      <div class="questions_number">
+        <label id="number_of_questions_label" for="number_of_questions">
+          Enter number of questions:
+        </label>
+        <input
+          type="number"
+          min="1"
+          max="10"
+          id="number_of_questions"
+          value="10"
+        />
+      </div>
+      <div class="category">
+        <label for="category_options">Choose category:</label>
+        <select
+          id="category_options"
+          name="category_options"
+          form="category_form"
+        >
+          <option value="9">General Knowledge</option>
+          <option value="10">Entertainment: Books</option>
+          <option value="11">Entertainment: Film</option>
+          <option value="12">Entertainment: Music</option>
+          <option value="18">Science: Computers</option>
+          <option value="19">Science: Mathematics</option>
+        </select>
+      </div>
+      <div class="dificulty_level">
+        <label for="dificulty_options">Choose dificulty level:</label>
+        <select
+          id="dificulty_options"
+          name="dificulty_options"
+          form="dificulty_form"
+        >
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+      <div class="buttons">
+        <button class="quit_2">Exit Quiz</button>
+        <button class="continue-2">Continue</button>
+      </div>
+    </div>
+
+    <div class="quiz_box">
+      <header>
+        <div class="title">Awesome Quiz Application</div>
+        <div class="timer">
+          <div class="time_left_txt">Time Left</div>
+          <div class="timer_sec">15</div>
+        </div>
+      </header>
+      <section>
+        <div class="que_text"></div>
+        <div class="option_list"></div>
+      </section>
+
+      <footer>
+        <div class="total_que"></div>
+        <button class="next_btn">Next Que</button>
+      </footer>
+    </div>
+
+    <div class="result_box">
+      <div class="icon">
+        <i class="fas fa-crown"></i>
+      </div>
+      <div class="complete_text">You've completed the Quiz!</div>
+      <div class="score_text"></div>
+      <div class="buttons">
+        <button class="restart">Replay Quiz</button>
+        <button class="quit">Quit Quiz</button>
+      </div>
+    </div>
+
+    <script src="/index.js"></script>
+  </body>
+</html>

@@ -46,15 +46,4 @@ const q = func("https://opentdb.com/api.php?amount=1&category=25&difficulty=easy
 
 
 
-// fetch("https://opentdb.com/api.php?amount=1&category=25&difficulty=easy&type=multiple").then(function(result){
-//     return result.json();
-// }).then(function(result){
-//    const question = document.querySelector("#questionInside");
-//    const category = document.querySelector("#categoryInside");
-//    question.innerHTML = result.results[0].question; 
-//    category.innerHTML = result.results[0].category; 
-//    answer = result.results[0].correct_answer;
-// })
-
-
 
