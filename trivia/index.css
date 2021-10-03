@@ -1,10 +1,11 @@
+/* global settings */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+/* video settings */
 #myVideo {
   position: fixed;
   top: -25%;
@@ -12,6 +13,7 @@
   min-height: 100%;
   min-width: 100%;
 }
+/* settings of hided main boxes */
 .options_box,
 .start_btn,
 .players_box,
@@ -24,6 +26,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 20px;
 }
+/* settings of showen main boxes */
 .options_box.activeOption,
 .players_box.activeInfo,
 .quiz_box.activeQuiz,
@@ -33,7 +36,7 @@
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
 }
-
+/* start button */
 .start_btn button {
   font-size: 1.5rem;
   font-weight: 500;
@@ -45,6 +48,7 @@
   background: rgba(237, 211, 119, 1);
   cursor: pointer;
 }
+/* player box settings */
 .players_box {
   width: 30rem;
   background: rgba(237, 211, 119, 1);
@@ -77,6 +81,7 @@
   display: block;
   color: rgb(40, 89, 168, 1);
 }
+/* settings of players and option boxes  */
 .players_box .buttons,
 .options_box .buttons {
   height: 60px;
@@ -100,6 +105,7 @@
   border: 1px solid rgb(40, 89, 168);
   transition: all 0.3s ease;
 }
+/* settings of player information box */
 .player_information_box {
   display: flex;
   opacity: 0;
@@ -127,7 +133,8 @@
 .player_information_box .xp {
   padding-left: 1rem;
 }
-
+/* option box settings */
+/* not complete! */
 .options_box {
   width: 35rem;
   background: rgba(237, 211, 119, 1);
@@ -151,11 +158,12 @@ select {
   color: rgb(40, 89, 168, 1);
   align-self: flex-end;
 }
-
+/* quiz box settings */
+/* not complete! */
 .quiz_box {
   width: 550px;
-  background: #fff;
-  border-radius: 5px;
+  background: rgba(237, 211, 119, 1);
+  border-radius: 20px;
   transform: translate(-50%, -50%) scale(0.9);
   opacity: 0;
   pointer-events: none;
@@ -166,8 +174,8 @@ select {
   z-index: 2;
   height: 70px;
   padding: 0 30px;
-  background: #fff;
-  border-radius: 5px 5px 0 0;
+  background: rgba(237, 211, 119, 1);
+  border-radius: 20px 20px 0 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -214,6 +222,7 @@ select {
   height: 3px;
   background: #007bff;
 }
+/* settings of quize box's section */
 section {
   padding: 25px 30px 20px 30px;
   background: #fff;
@@ -260,6 +269,7 @@ section .option_list .option.incorrect {
 section .option_list .option.disabled {
   pointer-events: none;
 }
+/* settings of quize box's footer */
 footer {
   height: 60px;
   padding: 0 30px;
@@ -305,6 +315,7 @@ footer button.show {
   pointer-events: auto;
   transform: scale(1);
 }
+/* settings of result box */
 .result_box {
   background: #fff;
   border-radius: 5px;
@@ -355,6 +366,7 @@ footer button.show {
   border: 1px solid #007bff;
   transition: all 0.3s ease;
 }
+/* settings of buttuns*/
 .buttons button.restart {
   color: #fff;
   background: rgb(40, 89, 168);
