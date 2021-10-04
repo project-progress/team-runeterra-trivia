@@ -165,7 +165,6 @@ const restart_quiz = result_box.querySelector(".buttons .restart");
 const quit_quiz = result_box.querySelector(".buttons .quit");
 
 // if restartQuiz button clicked
-
 function resetUsersScoreLabels() {
   for (let i = 1; i <= 4; i++) {
     const userScoreElement = document.getElementById(`xp${i}`);
