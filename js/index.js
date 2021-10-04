@@ -119,9 +119,16 @@ function getQuestionRequest() {
   const number_of_questions =
     document.getElementById("number_of_questions").value * 4 || 40;
   const category_options =
-    document.getElementById("category_options").value || 9;
-  const dificulty_options =
+    document.getElementById("category_options").value || "9";
+  let dificulty_options =
     document.getElementById("dificulty_options").value || "easy";
+  if (
+    category_options === "11" ||
+    category_options === "14" ||
+    category_options === "21"
+  ) {
+    dificulty_options = "medium";
+  }
   fetch(
     `https://opentdb.com/api.php?amount=${number_of_questions}&category=${category_options}&difficulty=${dificulty_options}&type=multiple`
   )
@@ -158,7 +165,7 @@ let que_count = 0;
 let que_numb = 1;
 let counter;
 let players_array = ["Player_1", "Player_2", "Player_3", "Player_4"];
-let current_player = 0;
+let current_player_index = 0;
 let counterLine;
 let widthValue = 0;
 const restart_quiz = result_box.querySelector(".buttons .restart");
@@ -190,7 +197,7 @@ restart_quiz.onclick = () => {
   que_count = 0;
   que_numb = 1;
   widthValue = 0;
-  current_player = 0;
+  current_player_index = 0;
 
   clearInterval(counter); //clear counter
   clearInterval(counterLine); //clear counterLine
@@ -210,7 +217,7 @@ const bottom_ques_counter = document.querySelector("footer .total_que");
 next_btn.onclick = () => {
   if (
     que_count <
-    quizData[players_array[current_player]].questions.length - 1
+    quizData[players_array[current_player_index]].questions.length - 1
   ) {
     //if question count is less than total question length
     que_count++; //increment the que_count value
@@ -224,10 +231,12 @@ next_btn.onclick = () => {
     timeText.textContent = "Time Left"; //change the timeText to Time Left
     next_btn.classList.remove("show"); //hide the next button
   } else {
-    if (current_player < 3) {
-      current_player++;
-      setActiveUserLabel(current_player);
-      alert(`${quizData[players_array[current_player]].name} it is your turn!`);
+    if (current_player_index < 3) {
+      current_player_index++;
+      setActiveUserLabel(current_player_index);
+      alert(
+        `${quizData[players_array[current_player_index]].name} it is your turn!`
+      );
       que_count = 0;
       que_numb = 1;
       showQuetions(que_count);
@@ -253,22 +262,22 @@ function showQuetions(index) {
   //creating a new span and div tag for question and option and passing the value using array index
   let que_tag =
     "<span>" +
-    quizData[players_array[current_player]].questions[index].numb +
+    quizData[players_array[current_player_index]].questions[index].numb +
     ". " +
-    quizData[players_array[current_player]].questions[index].question +
+    quizData[players_array[current_player_index]].questions[index].question +
     "</span>";
   let option_tag =
     '<div class="option"><span>' +
-    quizData[players_array[current_player]].questions[index].options[0] +
+    quizData[players_array[current_player_index]].questions[index].options[0] +
     "</span></div>" +
     '<div class="option"><span>' +
-    quizData[players_array[current_player]].questions[index].options[1] +
+    quizData[players_array[current_player_index]].questions[index].options[1] +
     "</span></div>" +
     '<div class="option"><span>' +
-    quizData[players_array[current_player]].questions[index].options[2] +
+    quizData[players_array[current_player_index]].questions[index].options[2] +
     "</span></div>" +
     '<div class="option"><span>' +
-    quizData[players_array[current_player]].questions[index].options[3] +
+    quizData[players_array[current_player_index]].questions[index].options[3] +
     "</span></div>";
   que_text.innerHTML = que_tag; //adding new span tag inside que_tag
   option_list.innerHTML = option_tag; //adding new div tag inside option_tag
@@ -281,12 +290,14 @@ function showQuetions(index) {
 }
 
 function updateUserScore() {
-  quizData[players_array[current_player]].xp += 10;
+  quizData[players_array[current_player_index]].xp += 10;
 
-  const activeUserLabelXp = document.getElementById(`xp${current_player + 1}`);
+  const activeUserLabelXp = document.getElementById(
+    `xp${current_player_index + 1}`
+  );
 
   activeUserLabelXp.innerText = `${
-    quizData[players_array[current_player]].xp
+    quizData[players_array[current_player_index]].xp
   } XP`;
 }
 
@@ -296,7 +307,7 @@ function optionSelected(answer) {
   clearInterval(counterLine); //clear counterLine
   let userAns = answer.textContent; //getting user selected option
   let correcAns =
-    quizData[players_array[current_player]].questions[que_count].answer; //getting correct answer from array
+    quizData[players_array[current_player_index]].questions[que_count].answer; //getting correct answer from array
   const allOptions = option_list.children.length; //getting all option items
 
   if (userAns == correcAns) {
@@ -354,7 +365,8 @@ function startTimer(time) {
       timeText.textContent = "Time Off"; //change the time text to time off
       const allOptions = option_list.children.length; //getting all option items
       let correcAns =
-        quizData[players_array[current_player]].questions[que_count].answer; //getting correct answer from array
+        quizData[players_array[current_player_index]].questions[que_count]
+          .answer; //getting correct answer from array
       for (i = 0; i < allOptions; i++) {
         if (option_list.children[i].textContent == correcAns) {
           //if there is an option which is matched to an array answer
@@ -389,7 +401,7 @@ function queCounter(index) {
     "<span><p>" +
     index +
     "</p> of <p>" +
-    quizData[players_array[current_player]].questions.length +
+    quizData[players_array[current_player_index]].questions.length +
     "</p> Questions</span>";
   bottom_ques_counter.innerHTML = totalQueCounTag; //adding new span tag inside bottom_ques_counter
 }
