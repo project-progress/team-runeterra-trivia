@@ -143,7 +143,7 @@
 /* option box settings */
 /* not complete! */
 .options_box {
-  width: 36rem;
+  width: 35rem;
   background: rgba(237, 211, 119, 1);
   transform: translate(-50%, -50%) scale(0.9);
   opacity: 0;
@@ -176,10 +176,10 @@ select {
   margin-bottom: 0.5rem;
 }
 #number_of_questions {
-  margin-left: 3.2rem;
+  margin-left: 2.3rem;
 }
 #dificulty_options {
-  margin-left: 5.2rem;
+  margin-left: 7.3rem;
 }
 /* quiz box settings */
 /* not complete! */
